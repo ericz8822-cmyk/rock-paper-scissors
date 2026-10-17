@@ -13,47 +13,67 @@ function getComputerChoice () {
     }
 }
         
-// function getHumanChoice() {
-//     let choice = prompt('Please enter one of the three: rock, paper, scissors');
-//     // console.log(choice);
-//     return choice;
-// }
-
 function playRound (humanChoice) {
     let computerChoice = getComputerChoice();
-    // humanChoice = getHumanChoice();
-    // humanChoice = humanChoice.toLowerCase();
     if (computerChoice === 'rock') {
         if (humanChoice === 'scissors') {
+            const para = document.createElement('p');
+            para.textContent = 'You lose! Rock beats scissors.';
+            result.appendChild(para);
             console.log('You lose! Rock beats scissors.');
             computerScore++;
         } else if (humanChoice === 'paper') {
+            const para = document.createElement('p');
+            para.textContent = 'You win! Paper neats rock.';
+            result.appendChild(para);
             console.log('You win! Paper neats rock.');
             humanScore++;
         }
     }
     if (computerChoice === 'scissors') {
         if (humanChoice === 'paper') {
+            const para = document.createElement('p');
+            para.textContent = 'You lose! Scissors beats paper.';
+            result.appendChild(para);
             console.log('You lose! Scissors beats paper.');
             computerScore++;
         } else if (humanChoice === 'rock') {
+            const para = document.createElement('p');
+            para.textContent = 'You win! Rock neats scissors.';
+            result.appendChild(para);
             console.log('You win! Rock neats scissors.');
             humanScore++;
         }
     }
     if (computerChoice === 'paper') {
         if (humanChoice === 'rock') {
+            const para = document.createElement('p');
+            para.textContent = 'You lose! Paper beats rock.';
+            result.appendChild(para);
             console.log('You lose! Paper beats rock.');
             computerScore++;
         } else if (humanChoice === 'scissors') {
+            const para = document.createElement('p');
+            para.textContent = 'You win! Scissors neats paper.';
+            result.appendChild(para);
             console.log('You win! Scissors neats paper.');
             humanScore++;
         }
     }
     if (computerChoice === humanChoice) {
+        const para = document.createElement('p');
+        para.textContent = `Draw! Both are ${computerChoice}.`;
+        result.appendChild(para);
         console.log(`Draw! Both are ${computerChoice}.`);
     }
+
+    const para = document.createElement('p');
+    para.textContent = `Your current score: ${humanScore}\nComputer's current score: ${computerScore}`;
+    result.appendChild(para);
     console.log(`Your current score: ${humanScore}\nComputer's current score: ${computerScore}`);
+
+    rounds ++;
+    console.log(rounds);
 }
 
 function playGame() {
@@ -71,12 +91,15 @@ function playGame() {
     }
 }
 
+let rounds = 0;
 let humanScore = 0;
 let computerScore = 0;
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const result = document.querySelector('div');
+
 rock.addEventListener('click', () => {
     playRound('rock');
 });
@@ -86,7 +109,3 @@ paper.addEventListener('click', () => {
 scissors.addEventListener('click', () => {
     playRound('scissors');
 });
-
-
-
-
