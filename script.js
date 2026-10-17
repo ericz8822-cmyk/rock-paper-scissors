@@ -88,21 +88,6 @@ function end(){
     }
 }
 
-// function playGame() {
-//     playRound();
-//     playRound();
-//     playRound();
-//     playRound();
-//     playRound();
-//     if (humanScore > computerScore) {
-//         console.log('You win against Computer!');
-//     } else if (computerScore > humanScore) {
-//         console.log('Computer beats you!')
-//     } else {
-//         console.log('You drawed with computer. ')
-//     }
-// }
-
 let humanScore = 0;
 let computerScore = 0;
 
