@@ -13,16 +13,16 @@ function getComputerChoice () {
     }
 }
         
-function getHumanChoice() {
-    let choice = prompt('Please enter one of the three: rock, paper, scissors');
-    // console.log(choice);
-    return choice;
-}
+// function getHumanChoice() {
+//     let choice = prompt('Please enter one of the three: rock, paper, scissors');
+//     // console.log(choice);
+//     return choice;
+// }
 
-function playRound (computerChoice, humanChoice) {
-    computerChoice = getComputerChoice();
-    humanChoice = getHumanChoice();
-    humanChoice = humanChoice.toLowerCase();
+function playRound (humanChoice) {
+    let computerChoice = getComputerChoice();
+    // humanChoice = getHumanChoice();
+    // humanChoice = humanChoice.toLowerCase();
     if (computerChoice === 'rock') {
         if (humanChoice === 'scissors') {
             console.log('You lose! Rock beats scissors.');
@@ -74,6 +74,19 @@ function playGame() {
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+rock.addEventListener('click', () => {
+    playRound('rock');
+});
+paper.addEventListener('click', () => {
+    playRound('paper');
+});
+scissors.addEventListener('click', () => {
+    playRound('scissors');
+});
+
+
 
 
