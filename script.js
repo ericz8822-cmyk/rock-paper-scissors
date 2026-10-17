@@ -72,26 +72,37 @@ function playRound (humanChoice) {
     result.appendChild(para);
     console.log(`Your current score: ${humanScore}\nComputer's current score: ${computerScore}`);
 
-    rounds ++;
-    console.log(rounds);
+    end();
 }
 
-function playGame() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    if (humanScore > computerScore) {
-        console.log('You win against Computer!');
-    } else if (computerScore > humanScore) {
-        console.log('Computer beats you!')
-    } else {
-        console.log('You drawed with computer. ')
+function end(){
+    if (humanScore === 5) {
+        let para = document.createElement('p');
+        para.textContent = 'Congratulations, you have reached 5 points and you won.';
+        result.appendChild(para);
+    }
+    if (computerScore === 5) {
+        let para = document.createElement('p');
+        para.textContent = 'The computer reached 5 points and you lost.';
+        result.appendChild(para);
     }
 }
 
-let rounds = 0;
+// function playGame() {
+//     playRound();
+//     playRound();
+//     playRound();
+//     playRound();
+//     playRound();
+//     if (humanScore > computerScore) {
+//         console.log('You win against Computer!');
+//     } else if (computerScore > humanScore) {
+//         console.log('Computer beats you!')
+//     } else {
+//         console.log('You drawed with computer. ')
+//     }
+// }
+
 let humanScore = 0;
 let computerScore = 0;
 
